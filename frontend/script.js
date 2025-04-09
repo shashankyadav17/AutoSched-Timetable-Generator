@@ -1,12 +1,13 @@
 // Show login popup
 function showLogin(role) {
-    const loginPopup = document.getElementById("loginPopup");
-    const loginTitle = document.getElementById("loginTitle");
-  
-    loginTitle.textContent = role.charAt(0).toUpperCase() + role.slice(1) + " Login";
-    loginPopup.style.display = "flex";
-  }
-  
+  const loginPopup = document.getElementById("loginPopup");
+  const loginTitle = document.getElementById("loginTitle");
+  const loginRole = document.getElementById("loginRole");
+
+  loginTitle.textContent = role.charAt(0).toUpperCase() + role.slice(1) + " Login";
+  loginRole.value = role;
+  loginPopup.style.display = "flex";
+}  
   // Close the popup
   function closeLogin() {
     const loginPopup = document.getElementById("loginPopup");

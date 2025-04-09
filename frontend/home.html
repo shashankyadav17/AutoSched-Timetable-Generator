@@ -71,7 +71,8 @@
         <i class="fas fa-user-lock"></i>
         <h2 id="loginTitle">Login</h2>
       </div>
-      <form id="loginForm">
+      <form id="loginForm" action="login.php" method="POST">
+        <input type="hidden" name="role" id="loginRole">      
         <div class="input-group">
           <i class="fas fa-user"></i>
           <input type="text" id="username" name="username" placeholder="Roll Number / Email" required>
