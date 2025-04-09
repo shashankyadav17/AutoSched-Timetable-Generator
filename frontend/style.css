@@ -291,7 +291,7 @@ body {
   }
   
   .popup-content input {
-    width: 100%;
+    width: 90%;
     padding: 12px 12px 12px 40px;
     border-radius: 8px;
     border: 1px solid #ccc;
