@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "autosched_db";  // ✅ use your actual database name
+$dbname = "autosched";  // ✅ use your actual database name
 $username = "root";
 $password = ""; // default for XAMPP
 
