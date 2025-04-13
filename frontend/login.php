@@ -25,6 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($role === 'faculty') {
         $query = "SELECT * FROM faculty WHERE email = '$username' AND employee_id = '$password'";
         $result = $conn->query($query);
+        if ($result && $result->num_rows > 0) {
+            $faculty = $result->fetch_assoc(); // Fetch faculty details
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = $role;
+            $_SESSION['faculty_id'] = $faculty['faculty_id']; // Store faculty_id in session
+            header("Location: dashboard/faculty-dashboard.php");
+            exit;
+        }
 
     } elseif ($role === 'admin') {
         $query = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
