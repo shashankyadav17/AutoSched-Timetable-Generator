@@ -28,7 +28,9 @@ $username = $_SESSION['username'];
     </div>
 
     <div class="sidebar">
+        <a href="admin-dashboard.php">Dashboard</a>
         <a href="#">Manage Subjects</a>
+        <a href="timetable-settings.php">Timetable Settings</a>
         <a href="#">Generate Timetable</a>
         <a href="#">Manage Faculty</a>
     </div>
