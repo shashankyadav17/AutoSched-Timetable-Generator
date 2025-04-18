@@ -31,7 +31,7 @@ $username = $_SESSION['username'];
         <a href="admin-dashboard.php">Dashboard</a>
         <a href="#">Manage Subjects</a>
         <a href="timetable-settings.php">Timetable Settings</a>
-        <a href="#">Generate Timetable</a>
+        <a href="generate-timetable.php">Generate Timetable</a>
         <a href="#">Manage Faculty</a>
     </div>
 

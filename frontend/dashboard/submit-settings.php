@@ -11,6 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $working_days = $_POST['working_days'] ?? [];
     $subject_types = $_POST['subject_type'];
     $lectures = $_POST['lectures'];
+    $start_time = $_POST['start_time'];
+    $break_after_period = $_POST['break_after_period'];
+    $break_duration = $_POST['break_duration'];
+
 
     // ✅ Validation
     $num_working_days = count($working_days);
@@ -33,10 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 💾 Insert general settings
     $working_days_str = implode(",", $working_days);
-    $stmt = $conn->prepare("INSERT INTO general_settings 
-        (semester_id, periods_per_day, period_duration, theory_duration, lab_duration, working_days) 
-        VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iiiiis", $semester_id, $periods_per_day, $period_duration, $theory_duration, $lab_duration, $working_days_str);
+    $stmt = $conn->prepare("INSERT INTO general_settings (semester_id, periods_per_day, period_duration, theory_duration, lab_duration, working_days, start_time, break_after_period, break_duration) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iiiiissii", $semester_id, $periods_per_day, $period_duration, $theory_duration, $lab_duration, $working_days_str, $start_time, $break_after_period, $break_duration);
 
     if (!$stmt->execute()) {
         $_SESSION['error'] = "Error saving general settings.";

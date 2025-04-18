@@ -119,7 +119,7 @@ if (!empty($selected_semester)) {
             <a href="admin-dashboard.php">Dashboard</a>
             <a href="#">Manage Subjects</a>
             <a href="timetable-settings.php" class="active">Timetable Settings</a>
-            <a href="#">Generate Timetable</a>
+            <a href="generate-timetable.php">Generate Timetable</a>
             <a href="#">Manage Faculty</a>
         </div>
 
@@ -158,6 +158,12 @@ if (!empty($selected_semester)) {
                             </label>
                         <?php endforeach; ?>
                     </div>
+                    <label>Start Time:</label>
+                    <input type="time" name="start_time" value="<?= htmlspecialchars($_POST['start_time'] ?? '09:00') ?>" required><br>
+                    <label>Break After How Many Periods?:</label>
+                    <input type="number" name="break_after_period" value="<?= htmlspecialchars($_POST['break_after_period'] ?? 4) ?>" required><br>
+                    <label>Break Duration (in minutes):</label>
+                    <input type="number" name="break_duration" value="<?= htmlspecialchars($_POST['break_duration'] ?? 30) ?>" required><br>
                 </div>
 
                 <?php if (!empty($subjects)): ?>
