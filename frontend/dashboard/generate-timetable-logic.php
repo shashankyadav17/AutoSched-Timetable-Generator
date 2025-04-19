@@ -4,21 +4,19 @@ include '../db.php';
 function getGeneralSettings() {
     $res = mysqli_query($GLOBALS['conn'], "SELECT * FROM general_settings LIMIT 1");
     $settings = mysqli_fetch_assoc($res);
-    
-    // Convert comma-separated working days into array
     $settings['working_days'] = explode(',', $settings['working_days']);
-
     return $settings;
 }
 
-
 function getSubjectsWithFaculty($semester_id) {
     $subjects = [];
-    $q = "SELECT s.*, fa.faculty_id, fa.section 
-          FROM subjects s 
-          JOIN faculty_allotment fa ON s.subject_id = fa.subject_id 
-          WHERE fa.semester_id = $semester_id
-        ";
+    $q = "
+        SELECT s.subject_name AS name, s.subject_id, ss.subject_type, ss.lectures_per_week, fa.faculty_id, fa.section 
+        FROM subjects s 
+        JOIN subject_settings ss ON s.subject_id = ss.subject_id AND ss.semester_id = $semester_id
+        JOIN faculty_allotment fa ON s.subject_id = fa.subject_id AND fa.semester_id = $semester_id
+    ";
+
     $res = mysqli_query($GLOBALS['conn'], $q);
     while ($row = mysqli_fetch_assoc($res)) {
         $subjects[] = $row;
@@ -43,12 +41,17 @@ function facultyAvailable($facultyBusySlots, $faculty_id, $day, $periods) {
     return true;
 }
 
-function placeLabInGrid(&$grid, &$facultyBusySlots, $subject, $settings) {
+function placeLabInGrid(&$grid, &$facultyBusySlots, $subject, $settings, &$sectionLabsPerDay) {
     $placed = false;
     $days = $settings['working_days'];
     $ppd = $settings['periods_per_day'];
 
     foreach ($days as $day) {
+        // Ensure only one lab per day
+        if (isset($sectionLabsPerDay[$day]) && $sectionLabsPerDay[$day] >= 1) {
+            continue;
+        }
+
         for ($p = 1; $p <= $ppd - 2; $p++) {
             $periods = [$p, $p + 1, $p + 2];
             if ($grid[$day][$p] === null && $grid[$day][$p + 1] === null && $grid[$day][$p + 2] === null) {
@@ -61,6 +64,7 @@ function placeLabInGrid(&$grid, &$facultyBusySlots, $subject, $settings) {
                         ];
                         $facultyBusySlots[$subject['faculty_id']][$day][$period] = true;
                     }
+                    $sectionLabsPerDay[$day] = ($sectionLabsPerDay[$day] ?? 0) + 1; // Track labs per day
                     $placed = true;
                     break 2;
                 }
@@ -70,21 +74,25 @@ function placeLabInGrid(&$grid, &$facultyBusySlots, $subject, $settings) {
     return $placed;
 }
 
-function placeTheoryInGrid(&$grid, &$facultyBusySlots, $subject, $settings) {
+function placeTheoryInGrid(&$grid, &$facultyBusySlots, $subject, $settings, &$sectionSubjectCountPerDay) {
     $count = 0;
     $max = $subject['lectures_per_week'];
     $days = $settings['working_days'];
     $ppd = $settings['periods_per_day'];
 
     foreach ($days as $day) {
+        // Ensure a subject is scheduled at most twice per day
+        if (isset($sectionSubjectCountPerDay[$day][$subject['name']]) && $sectionSubjectCountPerDay[$day][$subject['name']] >= 2) {
+            continue;
+        }
+
         for ($p = 1; $p <= $ppd; $p++) {
             if ($grid[$day][$p] === null &&
                 facultyAvailable($facultyBusySlots, $subject['faculty_id'], $day, [$p])) {
 
-                // Avoid >2 consecutive same subject
                 if ($p >= 2 && isset($grid[$day][$p - 1]) && $grid[$day][$p - 1]['subject'] == $subject['name']) {
                     $prev = isset($grid[$day][$p - 2]) ? $grid[$day][$p - 2]['subject'] ?? '' : '';
-                    if ($prev == $subject['name']) continue; // would make 3 in a row
+                    if ($prev == $subject['name']) continue;
                 }
 
                 $grid[$day][$p] = [
@@ -93,6 +101,7 @@ function placeTheoryInGrid(&$grid, &$facultyBusySlots, $subject, $settings) {
                     'type' => 'Theory'
                 ];
                 $facultyBusySlots[$subject['faculty_id']][$day][$p] = true;
+                $sectionSubjectCountPerDay[$day][$subject['name']] = ($sectionSubjectCountPerDay[$day][$subject['name']] ?? 0) + 1; // Track subject count per day
                 $count++;
                 if ($count == $max) return true;
             }
@@ -110,21 +119,20 @@ function generateTimetable($semester_id) {
     foreach ($sections as $section) {
         $grid = initEmptyGrid($settings['working_days'], $settings['periods_per_day']);
         $facultyBusySlots = [];
+        $sectionLabsPerDay = []; // Track labs per day
+        $sectionSubjectCountPerDay = []; // Track subject counts per day
 
-        // Get only this section's subjects
         $sectionSubjects = array_filter($subjects, fn($s) => $s['section'] === $section);
 
-        // Place Labs first
         foreach ($sectionSubjects as $subj) {
-            if (strtolower($subj['type']) === 'lab') {
-                placeLabInGrid($grid, $facultyBusySlots, $subj, $settings);
+            if (strtolower($subj['subject_type']) === 'lab') {
+                placeLabInGrid($grid, $facultyBusySlots, $subj, $settings, $sectionLabsPerDay);
             }
         }
 
-        // Then place Theory
         foreach ($sectionSubjects as $subj) {
-            if (strtolower($subj['type']) === 'theory') {
-                placeTheoryInGrid($grid, $facultyBusySlots, $subj, $settings);
+            if (strtolower($subj['subject_type']) === 'theory') {
+                placeTheoryInGrid($grid, $facultyBusySlots, $subj, $settings, $sectionSubjectCountPerDay);
             }
         }
 
