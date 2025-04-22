@@ -1,0 +1,143 @@
+{
+  "A": {
+    "Monday": [
+      "Value Ethics and Gender Culture (Dr. V Akila)",
+      "Database Management Systems (Dr. Y Srilalitha)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Java Programming Lab (Mrs. N Mounika)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Discrete Mathematics (Dr. Y Srilalitha)"
+    ],
+    "Wednesday": [
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Database Management Systems (Dr. Y Srilalitha)",
+      "Java Programming Lab (Mrs. N Mounika)",
+      "Database Management Systems (Dr. Y Srilalitha)",
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)"
+    ],
+    "Thursday": [
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Digital Electronics Lab (Mr. P K Abhilash)",
+      "Java Programming Lab (Mrs. N Mounika)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Database Management Systems (Dr. Y Srilalitha)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)"
+    ],
+    "Friday": [
+      "Digital Electronics Lab (Mr. P K Abhilash)",
+      "Database Management Systems Lab (Ms. I Laxmi Bindu)",
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Database Management Systems (Dr. Y Srilalitha)",
+      "Digital Electronics Lab (Mr. P K Abhilash)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)"
+    ],
+    "Saturday": [
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Database Management Systems Lab (Ms. I Laxmi Bindu)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Database Management Systems Lab (Ms. I Laxmi Bindu)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Discrete Mathematics (Dr. Y Srilalitha)"
+    ]
+  },
+  "B": {
+    "Monday": [
+      "Value Ethics and Gender Culture (Mrs. N Mounika)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Database Management Systems Lab (Dr. V N Ganapathi Raju)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Database Management Systems (Dr. V N Ganapathi Raju)",
+      "Java Programming Lab (Ms. I Laxmi Bindu)",
+      "Discrete Mathematics (Sri. P Gopala Krishna)"
+    ],
+    "Wednesday": [
+      "Database Management Systems Lab (Dr. V N Ganapathi Raju)",
+      "Probability and Statistics (Mrs. P Prathibha Swaraj)",
+      "Probability and Statistics (Mrs. P Prathibha Swaraj)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Discrete Mathematics (Sri. P Gopala Krishna)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Database Management Systems (Dr. V N Ganapathi Raju)"
+    ],
+    "Thursday": [
+      "Java Programming Lab (Ms. I Laxmi Bindu)",
+      "Probability and Statistics (Mrs. P Prathibha Swaraj)",
+      "Discrete Mathematics (Sri. P Gopala Krishna)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Database Management Systems Lab (Dr. V N Ganapathi Raju)",
+      "Database Management Systems (Dr. V N Ganapathi Raju)",
+      "Java Programming Lab (Ms. I Laxmi Bindu)"
+    ],
+    "Friday": [
+      "Discrete Mathematics (Sri. P Gopala Krishna)",
+      "Database Management Systems (Dr. V N Ganapathi Raju)",
+      "Database Management Systems (Dr. V N Ganapathi Raju)",
+      "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Digital Electronics Lab (Mrs.L.Hema Lalitha)"
+    ],
+    "Saturday": [
+      "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
+      "Discrete Mathematics (Sri. P Gopala Krishna)",
+      "Probability and Statistics (Mrs. P Prathibha Swaraj)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+      "Probability and Statistics (Mrs. P Prathibha Swaraj)",
+      "Java Programming (Dr. K. Prasanna Lakshmi)",
+      "Digital Logic Design (Dr. Y J Nagendra Kumar)"
+    ]
+  },
+  "C": {
+    "Monday": [
+      "Java Programming (Dr. Y J Nagendra Kumar)",
+      "Value Ethics and Gender Culture (Mrs. N Mounika)",
+      "Java Programming (Dr. Y J Nagendra Kumar)",
+      "Database Management Systems (Mrs. T. Nishitha)",
+      "Digital Logic Design (Mrs. Y Prasanna)",
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Java Programming Lab (Mrs. A Srilakshmi)"
+    ],
+    "Wednesday": [
+      "Java Programming Lab (Mrs. A Srilakshmi)",
+      "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Digital Logic Design (Mrs. Y Prasanna)",
+      "Java Programming Lab (Mrs. A Srilakshmi)",
+      "Digital Logic Design (Mrs. Y Prasanna)",
+      "Java Programming (Dr. Y J Nagendra Kumar)"
+    ],
+    "Thursday": [
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Digital Logic Design (Mrs. Y Prasanna)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Digital Logic Design (Mrs. Y Prasanna)",
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Database Management Systems (Mrs. T. Nishitha)"
+    ],
+    "Friday": [
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+      "Database Management Systems (Mrs. T. Nishitha)",
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
+      "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
+      "Database Management Systems (Mrs. T. Nishitha)"
+    ],
+    "Saturday": [
+      "Java Programming (Dr. Y J Nagendra Kumar)",
+      "Discrete Mathematics (Dr. Y Srilalitha)",
+      "Java Programming (Dr. Y J Nagendra Kumar)",
+      "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
+      "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
+      "Database Management Systems (Mrs. T. Nishitha)",
+      "Digital Electronics Lab (Mrs.L.Hema Lalitha)"
+    ]
+  }
+}
