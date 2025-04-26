@@ -1,49 +1,129 @@
 <?php
 session_start();
 require '../db.php';
-include_once 'generate-timetable-logic.php';
 
+$selected_semesters = isset($_POST['semester_ids']) ? $_POST['semester_ids'] : [];
+$semester_list = [1 => '2-1', 2 => '2-2', 3 => '3-1', 4 => '3-2'];
 
-$selected_semester = $_POST['semester_id'] ?? '';
-$summary = null;
-$subjects = [];
-$timetable = [];
-$settings = [];
+$all_summaries = [];
+$subject_summaries = [];
+$errors = [];
+$generated_data = [];
+$exec_output = [];
+$exec_error = [];
 
-if (!empty($selected_semester)) {
-    // Fetch general settings
-    $stmt = $conn->prepare("SELECT * FROM general_settings WHERE semester_id = ?");
-    $stmt->bind_param("i", $selected_semester);
-    $stmt->execute();
-    $general_result = $stmt->get_result();
-    $summary = $general_result->fetch_assoc();
+function run_shell_command($cmd, &$output, &$error) {
+    $php_path = 'D:\\xampp\\php\\php.exe';
+    $python_path = 'python'; // Adjust to full path if needed
 
-    // Fetch subject settings
-    $stmt2 = $conn->prepare("SELECT s.subject_name, ss.subject_type, ss.lectures_per_week 
-        FROM subject_settings ss 
-        JOIN subjects s ON ss.subject_id = s.subject_id 
-        WHERE ss.semester_id = ?");
-    $stmt2->bind_param("i", $selected_semester);
-    $stmt2->execute();
-    $subjects = $stmt2->get_result()->fetch_all(MYSQLI_ASSOC);
+    $cmd = str_replace('{php}', $php_path, $cmd);
+    $cmd = str_replace('{python}', $python_path, $cmd);
 
-    // If timetable generate button clicked
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_now'])) {
-        $settings = $summary;
+    $descriptorspec = [
+        1 => ['pipe', 'w'],
+        2 => ['pipe', 'w']
+    ];
+    $process = proc_open($cmd, $descriptorspec, $pipes);
+    if (is_resource($process)) {
+        $output = stream_get_contents($pipes[1]);
+        fclose($pipes[1]);
+        $error = stream_get_contents($pipes[2]);
+        fclose($pipes[2]);
+        $return_value = proc_close($process);
+        return $return_value;
+    }
+    return -1;
+}
 
-        // Convert working_days string to array
-        if (isset($settings['working_days'])) {
-            $settings['working_days'] = array_map('trim', explode(',', $settings['working_days']));
-        } else {
-            $settings['working_days'] = [];
-        }
-
-        // Generate timetable
-        $timetable = generateTimetable($selected_semester);
+// Load generated data if exists
+if (file_exists("../../backend/generated_timetable_all.json")) {
+    $json = json_decode(file_get_contents("../../backend/generated_timetable_all.json"), true);
+    if ($json) {
+        $generated_data = $json;
     }
 }
-?>
 
+// If no semesters selected but generated data exists, populate selected semesters from generated data keys
+if (empty($selected_semesters) && !empty($generated_data)) {
+    $selected_semesters = [];
+    foreach ($generated_data as $sem_key => $_) {
+        $sem_id = intval(str_replace('sem_', '', $sem_key));
+        $selected_semesters[] = $sem_id;
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_now'])) {
+    if (!empty($selected_semesters)) {
+        foreach ($selected_semesters as $sem_id) {
+            $stmt = $conn->prepare("SELECT * FROM general_settings WHERE semester_id = ?");
+            $stmt->bind_param("i", $sem_id);
+            $stmt->execute();
+            $res = $stmt->get_result();
+            if ($res->num_rows === 0) {
+                $errors[] = "General settings missing for semester $sem_id";
+                continue;
+            }
+            $general = $res->fetch_assoc();
+
+            $stmt2 = $conn->prepare("SELECT COUNT(*) as count FROM subject_settings WHERE semester_id = ?");
+            $stmt2->bind_param("i", $sem_id);
+            $stmt2->execute();
+            $count = $stmt2->get_result()->fetch_assoc()['count'];
+            if ($count == 0) {
+                $errors[] = "Subject settings missing for semester $sem_id";
+                continue;
+            }
+
+            $general['working_days'] = implode(', ', array_map('trim', explode(',', $general['working_days'])));
+            $all_summaries[$sem_id] = $general;
+
+            $stmt3 = $conn->prepare("SELECT subject_name, subject_type, lectures_per_week FROM subjects s JOIN subject_settings ss ON s.subject_id = ss.subject_id WHERE ss.semester_id = ?");
+            $stmt3->bind_param("i", $sem_id);
+            $stmt3->execute();
+            $subject_summaries[$sem_id] = $stmt3->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+
+        $sem_str = implode(",", $selected_semesters);
+        $ret1 = run_shell_command("{php} ../../backend/export_timetable_data.php $sem_str", $out1, $err1);
+        $exec_output[] = $out1;
+        $exec_error[] = $err1;
+
+        $ret2 = run_shell_command("{python} ../../backend/generate_timetable.py", $out2, $err2);
+        $exec_output[] = $out2;
+        $exec_error[] = $err2;
+
+        if ($ret1 === 0 && $ret2 === 0) {
+            $json = json_decode(file_get_contents("../../backend/generated_timetable_all.json"), true);
+            $generated_data = $json;
+        } else {
+            $errors[] = "Error running timetable generation scripts.";
+        }
+    }
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_now'])) {
+    $ret3 = run_shell_command("{php} ../../backend/save_generated_timetable.php", $out3, $err3);
+    $exec_output[] = $out3;
+    $exec_error[] = $err3;
+
+    if ($ret3 === 0) {
+        // 🛠 After saving into database, generate Excel
+        $ret4 = run_shell_command("{python} ../../backend/generate_excel.py", $out4, $err4);
+        $exec_output[] = $out4;
+        $exec_error[] = $err4;
+
+        if ($ret4 === 0) {
+            $saved = true;
+        } else {
+            $errors[] = "Error generating Excel file.";
+        }
+    } else {
+        $errors[] = "Error saving timetable to database.";
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -51,142 +131,199 @@ if (!empty($selected_semester)) {
     <title>Generate Timetable</title>
     <link rel="stylesheet" href="/AutoSched-Timetable-Generator/frontend/dashboard-style.css">
     <style>
-        .form-section {
-            margin: 20px 0;
-            padding: 15px;
-            background: #f5f5f5;
-            border-radius: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table td, table th {
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+        .form-section { margin: 20px 0; background: #f0f0f0; padding: 15px; border-radius: 5px; }
+        .error { color: red; }
+        .success { color: green; }
+        select[multiple] { width: 300px; height: 120px; }
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="logo-title"><strong>AutoSched</strong></div>
-        <div>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?> 👋</div>
+<div class="top-bar">
+    <div class="logo-title"><strong>AutoSched</strong></div>
+    <div>Welcome, <?= htmlspecialchars($_SESSION['username']) ?> 👋</div>
+</div>
+
+<div class="main-wrapper">
+    <div class="sidebar">
+        <a href="admin-dashboard.php">Dashboard</a>
+        <a href="timetable-settings.php">Timetable Settings</a>
+        <a href="generate-timetable.php" class="active">Generate Timetable</a>
     </div>
 
-    <div class="main-wrapper">
-        <div class="sidebar">
-            <a href="admin-dashboard.php">Dashboard</a>
-            <a href="timetable-settings.php">Timetable Settings</a>
-            <a href="generate-timetable.php" class="active">Generate Timetable</a>
-        </div>
+    <div class="main-content">
+        <h2>Generate Timetable</h2>
 
-        <div class="main-content">
-            <h2>Generate Timetable</h2>
+        <form method="POST">
+            <label><strong>Select Semesters (Ctrl+Click for multiple):</strong></label><br>
+            <select name="semester_ids[]" multiple>
+                <?php foreach ($semester_list as $id => $label): ?>
+                    <option value="<?= $id ?>" <?= in_array($id, $selected_semesters) ? 'selected' : '' ?>><?= $label ?></option>
+                <?php endforeach; ?>
+            </select>
+            <br><br>
+            <button type="submit" name="generate_now">Generate Timetable</button>
+        </form>
 
-            <form method="POST" action="generate-timetable.php">
-                <label>Select Semester:</label>
-                <select name="semester_id" required onchange="this.form.submit()">
-                    <option value="">--Select--</option>
-                    <option value="1" <?= $selected_semester == '1' ? 'selected' : '' ?>>2-1</option>
-                    <option value="2" <?= $selected_semester == '2' ? 'selected' : '' ?>>2-2</option>
-                    <option value="3" <?= $selected_semester == '3' ? 'selected' : '' ?>>3-1</option>
-                    <option value="4" <?= $selected_semester == '4' ? 'selected' : '' ?>>3-2</option>
-                </select>
-            </form>
-            <?php
-function getPeriodTimes($start_time, $period_duration, $periods_per_day, $break_after_period, $break_duration) {
-    $times = [];
-    $current_time = strtotime($start_time);
+        <?php if (!empty($errors)): ?>
+            <div class="form-section error">
+                <h4>⚠️ Errors Found:</h4>
+                <ul>
+                    <?php foreach ($errors as $e): ?>
+                        <li><?= htmlspecialchars($e) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
 
-    for ($i = 1; $i <= $periods_per_day; $i++) {
-        $start = date('g:i A', $current_time);
-        $current_time += $period_duration * 60;
-        $end = date('g:i A', $current_time);
-        $times[] = "$start - $end";
+        <?php if (!empty($exec_output) || !empty($exec_error)): ?>
+            <div class="form-section">
+                <h4>🖥️ Script Output:</h4>
+                <?php foreach ($exec_output as $out): ?>
+                    <pre><?= htmlspecialchars($out) ?></pre>
+                <?php endforeach; ?>
+                <?php foreach ($exec_error as $err): ?>
+                    <?php if (!empty(trim($err))): ?>
+                        <pre style="color:red;"><?= htmlspecialchars($err) ?></pre>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
-        if ($i == $break_after_period) {
-            $current_time += $break_duration * 60; // Skip break
-        }
-    }
+        <?php if (!empty($all_summaries)): ?>
+            <div class="form-section">
+                <h3>📝 General Settings Summary</h3>
+                <?php foreach ($all_summaries as $sem_id => $s): ?>
+                    <h4><?= $semester_list[$sem_id] ?></h4>
+                    <p><strong>Periods/Day:</strong> <?= $s['periods_per_day'] ?> | <strong>Duration:</strong> <?= $s['period_duration'] ?> mins</p>
+                    <p><strong>Theory Duration:</strong> <?= $s['theory_duration'] ?> | <strong>Lab Duration:</strong> <?= $s['lab_duration'] ?></p>
+                    <p><strong>Start Time:</strong> <?= $s['start_time'] ?> | <strong>Break After Period:</strong> <?= $s['break_after_period'] ?> (<?= $s['break_duration'] ?> mins)</p>
+                    <p><strong>Working Days:</strong> <?= $s['working_days'] ?></p>
+                    <hr>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
-    return $times;
-}
-?>
+        <?php if (!empty($subject_summaries)): ?>
+            <div class="form-section">
+                <h3>📚 Subject Settings Summary</h3>
+                <?php foreach ($subject_summaries as $sem_id => $subjects): ?>
+                    <h4><?= $semester_list[$sem_id] ?></h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Subject Name</th>
+                                <th>Type</th>
+                                <th>Lectures/Week</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($subjects as $sub): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($sub['subject_name']) ?></td>
+                                    <td><?= htmlspecialchars($sub['subject_type']) ?></td>
+                                    <td><?= htmlspecialchars($sub['lectures_per_week']) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                    <br>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
+<?php if (!empty($generated_data) && !empty($all_summaries) && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+    <form method="POST">
+    <input type="hidden" name="semester_ids[]" value="<?= implode('" value="', $selected_semesters) ?>">
+    <button type="submit" name="save_now">✅ Save Timetable</button>
+    <?php if (isset($saved) && $saved): ?>
+        <a href="/AutoSched-Timetable-Generator/backend/download_timetable.php" style="margin-left: 10px;">
+            📥 Download Excel
+        </a>
+    <?php endif; ?>
+</form>
 
-            <?php if ($summary): ?>
-                <div class="form-section">
-                    <h3>General Settings Summary</h3>
-                    <p><strong>Periods per Day:</strong> <?= $summary['periods_per_day'] ?></p>
-                    <p><strong>Period Duration:</strong> <?= $summary['period_duration'] ?> mins</p>
-                    <p><strong>Theory Duration:</strong> <?= $summary['theory_duration'] ?> mins</p>
-                    <p><strong>Lab Duration:</strong> <?= $summary['lab_duration'] ?> mins</p>
-                    <p><strong>Start Time:</strong> <?= $summary['start_time'] ?></p>
-                    <p><strong>Break After Period:</strong> <?= $summary['break_after_period'] ?></p>
-                    <p><strong>Break Duration:</strong> <?= $summary['break_duration'] ?> mins</p>
-                    <p><strong>Working Days:</strong> <?= $summary['working_days'] ?></p>
-                </div>
-
-                <div class="form-section">
-                    <h3>Subjects Configuration</h3>
+            <br>
+            <?php foreach ($generated_data as $sem => $sections): ?>
+                <?php
+                    // Extract integer semester id from string key like "sem_3"
+                    $sem_id = intval(str_replace('sem_', '', $sem));
+                ?>
+                <h3>📘 Timetable for Semester <?= $semester_list[$sem_id] ?? "Sem $sem_id" ?></h3>
+                <?php foreach ($sections as $section => $grid): ?>
+                    <h4>Section <?= htmlspecialchars($section) ?></h4>
                     <table>
                         <tr>
-                            <th>Subject</th>
-                            <th>Type</th>
-                            <th>Lectures/Week</th>
+                            <th>Day / Hour</th>
+                            <?php
+                            $per_day = $all_summaries[$sem_id]['periods_per_day'];
+                            $break_after = $all_summaries[$sem_id]['break_after_period'];
+                            $break_duration = $all_summaries[$sem_id]['break_duration'];
+                            $start_time_str = $all_summaries[$sem_id]['start_time'];
+                            $period_duration = $all_summaries[$sem_id]['period_duration'];
+
+                            // Convert start_time string to DateTime object
+                            $start_time = DateTime::createFromFormat('H:i', $start_time_str);
+                            if (!$start_time) {
+                                // Try 12-hour format with am/pm
+                                $start_time = DateTime::createFromFormat('g:i a', strtolower($start_time_str));
+                            }
+                            if (!$start_time) {
+                                // Fallback to 9:00 AM if parsing fails
+                                $start_time = new DateTime('09:00');
+                            }
+
+                            for ($i = 1; $i <= $per_day; $i++):
+                                if ($i === $break_after + 1):
+                                    // Calculate break start and end time
+                                    $break_start = clone $start_time;
+                                    $break_start->modify('+'.($period_duration * $break_after).' minutes');
+                                    $break_end = clone $break_start;
+                                    $break_end->modify('+'.$break_duration.' minutes');
+                                    echo "<th>Break<br>" . $break_start->format('g:i') . " - " . $break_end->format('g:i') . "</th>";
+                                endif;
+
+                                // Calculate period start and end time
+                                $period_start = clone $start_time;
+                                if ($i > $break_after) {
+                                    $period_start->modify('+'.$break_duration.' minutes');
+                                }
+                                $period_start->modify('+'.($period_duration * ($i - 1)).' minutes');
+                                $period_end = clone $period_start;
+                                $period_end->modify('+'.$period_duration.' minutes');
+
+                                echo "<th>Period $i<br>" . $period_start->format('g:i') . " - " . $period_end->format('g:i') . "</th>";
+                            endfor;
+                            ?>
                         </tr>
-                        <?php foreach ($subjects as $sub): ?>
+                        <?php
+                        $all_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        foreach ($all_days as $day):
+                            $slots = $grid[$day] ?? array_fill(0, $per_day, "");
+                        ?>
                             <tr>
-                                <td><?= htmlspecialchars($sub['subject_name']) ?></td>
-                                <td><?= ucfirst($sub['subject_type']) ?></td>
-                                <td><?= $sub['lectures_per_week'] ?></td>
+                                <td><?= htmlspecialchars($day) ?></td>
+                                <?php
+                                $break_after_inserted = false;
+                                foreach ($slots as $i => $slot):
+                                    $period_number = $i + 1;
+                                    if ($period_number === $break_after + 1 && !$break_after_inserted):
+                                        echo "<td><strong>Break</strong></td>";
+                                        $break_after_inserted = true;
+                                    endif;
+                                    echo "<td>" . htmlspecialchars($slot ?: "") . "</td>";
+                                endforeach;
+                                ?>
                             </tr>
                         <?php endforeach; ?>
-                    </table>
-                </div>
-
-                <form method="POST" action="generate-timetable.php">
-                    <input type="hidden" name="semester_id" value="<?= $selected_semester ?>">
-                    <button type="submit" name="generate_now">Generate Timetable</button>
-                </form>
-                <?php if (!empty($timetable)): ?>
-    <?php foreach ($timetable as $section => $grid): ?>
-        <h3><?= "Timetable for Section $section" ?></h3>
-        <table border="1" cellpadding="5" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>Day / Hour</th>
-                    <?php for ($p = 1; $p <= $settings['periods_per_day']; $p++): ?>
-                        <th>Period <?= $p ?></th>
-                    <?php endfor; ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($settings['working_days'] as $day): ?>
-                    <tr>
-                        <td><?= $day ?></td>
-                        <?php for ($p = 1; $p <= $settings['periods_per_day']; $p++): ?>
-                            <?php
-                            $entry = $grid[$day][$p] ?? null;
-                            if ($entry) {
-                                echo "<td>{$entry['subject']}<br><small>F: {$entry['faculty']}</small></td>";
-                            } else {
-                                echo "<td></td>";
-                            }
-                            ?>
-                        <?php endfor; ?>
-                    </tr>
+                    </table><br>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
-        <br><br>
-    <?php endforeach; ?>
-<?php endif; ?>
-
-            <?php elseif ($selected_semester): ?>
-                <p style="color:red;">Settings not configured for selected semester. Please check Timetable Settings first.</p>
-            <?php endif; ?>
-        </div>
+            <?php endforeach; ?>
+        <?php elseif (isset($saved) && $saved): ?>
+            <p class="success"> Timetable saved successfully to final_timetable.</p>
+        <?php endif; ?>
     </div>
+</div>
 </body>
 </html>

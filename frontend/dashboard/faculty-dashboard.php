@@ -29,7 +29,7 @@ $faculty_id = $_SESSION['faculty_id']; // Assuming faculty_id is stored in the s
 </div>
 
 <div class="sidebar">
-    <a href="#">View Timetable</a>
+    <a href="faculty-view-timetable.php?username=<?php echo urlencode($username); ?>">View Timetable</a>
     <a href="#">Apply Leave</a>
     <?php if ((int)$faculty_id === 1074): ?>
         <a href="#">Allot Leaves</a>

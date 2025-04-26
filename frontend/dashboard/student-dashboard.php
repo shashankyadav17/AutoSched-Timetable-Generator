@@ -5,6 +5,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'student') {
     exit;
 }
 $username = $_SESSION['username'];
+echo "<p>Debug: Session username in student-dashboard.php = " . htmlspecialchars($username) . "</p>";
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ $username = $_SESSION['username'];
     </div>
 
     <div class="sidebar">
-        <a href="#">View Timetable</a>
+        <a href="student-view-timetable.php?username=<?php echo urlencode($username); ?>">View Timetable</a>
     </div>
 
     <div class="main-content">
