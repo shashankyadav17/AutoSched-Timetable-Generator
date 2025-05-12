@@ -143,6 +143,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_now'])) {
 <div class="top-bar">
     <div class="logo-title"><strong>AutoSched</strong></div>
     <div>Welcome, <?= htmlspecialchars($_SESSION['username']) ?> 👋</div>
+    <form method="POST" action="../logout.php" class="logout-form">
+        <button class="logout-btn" type="submit">Logout</button>
+    </form>
 </div>
 
 <div class="main-wrapper">

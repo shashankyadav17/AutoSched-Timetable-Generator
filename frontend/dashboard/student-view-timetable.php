@@ -153,8 +153,7 @@ for ($i = 1; $i <= $periods_per_day; $i++) {
 
 <div class="top-bar">
     <div class="left-section">
-        <img src="../assets/image.png" alt="Logo" style="height:40px;">
-        <div class="title">AutoSched</div>
+        <div class="logo-title"><strong>AutoSched</strong></div>
     </div>
     <div class="welcome">Welcome, <?= htmlspecialchars($name); ?> 👋</div>
     <form method="POST" action="../logout.php">

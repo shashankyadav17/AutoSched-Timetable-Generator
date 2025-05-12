@@ -19,16 +19,13 @@ $username = $_SESSION['username'];
 
     <!-- Top Bar -->
     <div class="top-bar">
-        <div class="logo-title">
-            <img src="../assets/logo.png" alt="Logo"> <!-- update this path if needed -->
-            <strong>AutoSched</strong>
+        <div class="left-section">
+            <div class="title">AutoSched</div>
         </div>
-        <div>
-            Welcome, <?php echo htmlspecialchars($username); ?> 👋
-            <form method="POST" action="../logout.php" style="display:inline;">
-                <button class="logout-btn" type="submit" height="50" width="50">Logout</button>
-            </form>
-        </div>
+        <div class="welcome">Welcome, <?php echo htmlspecialchars($username); ?> 👋</div>
+        <form method="POST" action="../logout.php">
+            <button class="logout-btn" type="submit">Logout</button>
+        </form>
     </div>
 
     <!-- Main Wrapper -->
@@ -38,9 +35,10 @@ $username = $_SESSION['username'];
         <div class="sidebar">
             <a href="faculty-dashboard.php">Dashboard</a>
             <a href="view-timetable.php">View Timetable</a>
+            <a href="faculty-apply-leave.php">Apply Leave</a>
             <?php if ($_SESSION['faculty_id'] === '1074'): ?>
+                <a href="hod-view-leave-requests.php">Allot Leaves</a>
                 <a href="allot-faculty.php">Allot Faculty</a>
-                <a href="#">Allot Leaves</a>
             <?php endif; ?>
         </div>
 
@@ -63,7 +61,9 @@ $username = $_SESSION['username'];
                         <option value="1">Semester 1</option>
                         <option value="2">Semester 2</option>
                     </select>
-                    <button class="submit-btn" type="button" onclick="loadSubjects()">Load Subjects</button>
+                   <div style="text-align: center; margin-top: 15px;">
+                    <button class="submit-btn" type="button" style="width: 200px;" onclick="loadSubjects()">Load Subjects</button>
+                   </div>
                 </div>
 
                 <div class="subjects-container" id="subjectsContainer">
@@ -71,7 +71,7 @@ $username = $_SESSION['username'];
                 </div>
 
                 <div style="margin-top: 20px;">
-                    <button type="submit" class="submit-btn">Submit Allotments</button>
+                    <button type="submit" class="submit-btn"  style="width: 200px; margin-left:385px;">Submit Allotments</button>
                 </div>
             </form>
         </div>

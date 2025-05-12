@@ -2,13 +2,13 @@
   "1": {
     "A": {
       "Monday": [
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
         "Database Management Systems Lab (Ms. I Laxmi Bindu)",
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
-        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
-        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+        "Database Management Systems Lab (Ms. I Laxmi Bindu)",
+        "Digital Electronics Lab (Mr. P K Abhilash)",
+        "Digital Electronics Lab (Mr. P K Abhilash)",
         "Discrete Mathematics (Dr. Y Srilalitha)",
-        "Discrete Mathematics (Dr. Y Srilalitha)"
+        "Discrete Mathematics (Dr. Y Srilalitha)",
+        "Database Management Systems (Dr. Y Srilalitha)"
       ],
       "Tuesday": [
         "",
@@ -20,51 +20,51 @@
         ""
       ],
       "Wednesday": [
-        "Java Programming Lab (Mrs. N Mounika)",
+        "Database Management Systems Lab (Ms. I Laxmi Bindu)",
+        "Digital Electronics Lab (Mr. P K Abhilash)",
+        "Discrete Mathematics (Dr. Y Srilalitha)",
         "Discrete Mathematics (Dr. Y Srilalitha)",
         "Database Management Systems (Dr. Y Srilalitha)",
-        "Java Programming Lab (Mrs. N Mounika)",
-        "Digital Electronics Lab (Mr. P K Abhilash)",
         "Database Management Systems (Dr. Y Srilalitha)",
-        "Database Management Systems Lab (Ms. I Laxmi Bindu)"
+        "Digital Logic Design (Dr. Y J Nagendra Kumar)"
       ],
       "Thursday": [
-        "Digital Electronics Lab (Mr. P K Abhilash)",
-        "Database Management Systems (Dr. Y Srilalitha)",
         "Discrete Mathematics (Dr. Y Srilalitha)",
+        "Database Management Systems (Dr. Y Srilalitha)",
+        "Database Management Systems (Dr. Y Srilalitha)",
+        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
         "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
-        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
-        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
         "Java Programming (Dr. K. Prasanna Lakshmi)"
       ],
       "Friday": [
         "Value Ethics and Gender Culture (Dr. V Akila)",
-        "Database Management Systems Lab (Ms. I Laxmi Bindu)",
-        "Java Programming (Dr. K. Prasanna Lakshmi)",
-        "Database Management Systems (Dr. Y Srilalitha)",
+        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Java Programming Lab (Mrs. N Mounika)",
         "Java Programming (Dr. K. Prasanna Lakshmi)",
         "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
-        "Digital Logic Design (Dr. Y J Nagendra Kumar)"
+        "Java Programming (Dr. K. Prasanna Lakshmi)"
       ],
       "Saturday": [
-        "Java Programming (Dr. K. Prasanna Lakshmi)",
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
         "Java Programming Lab (Mrs. N Mounika)",
-        "Digital Electronics Lab (Mr. P K Abhilash)",
         "Java Programming (Dr. K. Prasanna Lakshmi)",
-        "Discrete Mathematics (Dr. Y Srilalitha)",
-        "Database Management Systems (Dr. Y Srilalitha)",
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)"
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Java Programming (Dr. K. Prasanna Lakshmi)",
+        "Java Programming Lab (Mrs. N Mounika)"
       ]
     },
     "B": {
       "Monday": [
-        "Probability and Statistics (Mrs. P Prathibha Swaraj)",
-        "Java Programming (Dr. K. Prasanna Lakshmi)",
+        "Database Management Systems Lab (Dr. V N Ganapathi Raju)",
+        "Database Management Systems Lab (Dr. V N Ganapathi Raju)",
+        "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
+        "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
         "Discrete Mathematics (Sri. P Gopala Krishna)",
-        "Java Programming (Dr. K. Prasanna Lakshmi)",
-        "Java Programming Lab (Ms. I Laxmi Bindu)",
-        "Probability and Statistics (Mrs. P Prathibha Swaraj)",
-        "Database Management Systems Lab (Dr. V N Ganapathi Raju)"
+        "Discrete Mathematics (Sri. P Gopala Krishna)",
+        "Database Management Systems (Dr. V N Ganapathi Raju)"
       ],
       "Tuesday": [
         "",
@@ -76,51 +76,51 @@
         ""
       ],
       "Wednesday": [
-        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
-        "Probability and Statistics (Mrs. P Prathibha Swaraj)",
         "Database Management Systems Lab (Dr. V N Ganapathi Raju)",
         "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
         "Discrete Mathematics (Sri. P Gopala Krishna)",
         "Discrete Mathematics (Sri. P Gopala Krishna)",
-        "Digital Logic Design (Dr. Y J Nagendra Kumar)"
+        "Database Management Systems (Dr. V N Ganapathi Raju)",
+        "Database Management Systems (Dr. V N Ganapathi Raju)",
+        "Java Programming (Dr. K. Prasanna Lakshmi)"
       ],
       "Thursday": [
-        "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
-        "Database Management Systems (Dr. V N Ganapathi Raju)",
-        "Java Programming (Dr. K. Prasanna Lakshmi)",
         "Discrete Mathematics (Sri. P Gopala Krishna)",
         "Database Management Systems (Dr. V N Ganapathi Raju)",
+        "Database Management Systems (Dr. V N Ganapathi Raju)",
         "Java Programming (Dr. K. Prasanna Lakshmi)",
-        "Digital Electronics Lab (Mrs.L.Hema Lalitha)"
+        "Probability and Statistics (Mrs. P Prathibha Swaraj)",
+        "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+        "Digital Logic Design (Dr. Y J Nagendra Kumar)"
       ],
       "Friday": [
         "Digital Logic Design (Dr. Y J Nagendra Kumar)",
         "Value Ethics and Gender Culture (Mrs. N Mounika)",
-        "Java Programming Lab (Ms. I Laxmi Bindu)",
         "Digital Logic Design (Dr. Y J Nagendra Kumar)",
+        "Java Programming (Dr. K. Prasanna Lakshmi)",
         "Java Programming Lab (Ms. I Laxmi Bindu)",
-        "Database Management Systems (Dr. V N Ganapathi Raju)",
+        "Probability and Statistics (Mrs. P Prathibha Swaraj)",
         "Probability and Statistics (Mrs. P Prathibha Swaraj)"
       ],
       "Saturday": [
-        "Discrete Mathematics (Sri. P Gopala Krishna)",
-        "Database Management Systems (Dr. V N Ganapathi Raju)",
-        "Java Programming (Dr. K. Prasanna Lakshmi)",
         "Digital Logic Design (Dr. Y J Nagendra Kumar)",
-        "Database Management Systems (Dr. V N Ganapathi Raju)",
+        "Java Programming (Dr. K. Prasanna Lakshmi)",
         "Probability and Statistics (Mrs. P Prathibha Swaraj)",
-        "Database Management Systems Lab (Dr. V N Ganapathi Raju)"
+        "Java Programming Lab (Ms. I Laxmi Bindu)",
+        "Probability and Statistics (Mrs. P Prathibha Swaraj)",
+        "Java Programming Lab (Ms. I Laxmi Bindu)",
+        "Java Programming (Dr. K. Prasanna Lakshmi)"
       ]
     },
     "C": {
       "Monday": [
+        "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
+        "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
         "Discrete Mathematics (Dr. Y Srilalitha)",
-        "Value Ethics and Gender Culture (Mrs. N Mounika)",
-        "Digital Logic Design (Mrs. Y Prasanna)",
+        "Discrete Mathematics (Dr. Y Srilalitha)",
         "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
-        "Digital Logic Design (Mrs. Y Prasanna)",
         "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)"
+        "Database Management Systems (Mrs. T. Nishitha)"
       ],
       "Tuesday": [
         "",
@@ -132,80 +132,80 @@
         ""
       ],
       "Wednesday": [
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
-        "Java Programming (Dr. Y J Nagendra Kumar)",
-        "Database Management Systems (Mrs. T. Nishitha)",
-        "Discrete Mathematics (Dr. Y Srilalitha)",
         "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
-        "Java Programming Lab (Mrs. A Srilakshmi)"
+        "Discrete Mathematics (Dr. Y Srilalitha)",
+        "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
+        "Database Management Systems (Mrs. T. Nishitha)",
+        "Database Management Systems (Mrs. T. Nishitha)",
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Discrete Mathematics (Dr. Y Srilalitha)"
       ],
       "Thursday": [
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
-        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
         "Database Management Systems (Mrs. T. Nishitha)",
+        "Database Management Systems (Mrs. T. Nishitha)",
+        "Java Programming (Dr. Y J Nagendra Kumar)",
         "Discrete Mathematics (Dr. Y Srilalitha)",
-        "Digital Logic Design (Mrs. Y Prasanna)",
-        "Digital Logic Design (Mrs. Y Prasanna)",
-        "Database Management Systems (Mrs. T. Nishitha)"
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Java Programming Lab (Mrs. A Srilakshmi)",
+        "Digital Logic Design (Mrs. Y Prasanna)"
       ],
       "Friday": [
-        "Discrete Mathematics (Dr. Y Srilalitha)",
-        "Java Programming (Dr. Y J Nagendra Kumar)",
-        "Database Management Systems (Mrs. T. Nishitha)",
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Value Ethics and Gender Culture (Mrs. N Mounika)",
         "Digital Logic Design (Mrs. Y Prasanna)",
         "Java Programming (Dr. Y J Nagendra Kumar)",
-        "Java Programming Lab (Mrs. A Srilakshmi)",
-        "Java Programming Lab (Mrs. A Srilakshmi)"
+        "Java Programming (Dr. Y J Nagendra Kumar)",
+        "Digital Logic Design (Mrs. Y Prasanna)"
       ],
       "Saturday": [
-        "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
-        "Digital Electronics Lab (Mrs.L.Hema Lalitha)",
+        "Digital Logic Design (Mrs. Y Prasanna)",
+        "Digital Logic Design (Mrs. Y Prasanna)",
+        "Probability and Statistics (Dr. K. Prasanna Lakshmi)",
+        "Java Programming Lab (Mrs. A Srilakshmi)",
+        "Java Programming Lab (Mrs. A Srilakshmi)",
         "Java Programming (Dr. Y J Nagendra Kumar)",
-        "Database Management Systems (Mrs. T. Nishitha)",
-        "Database Management Systems Lab (Mrs. M Kanaka Durga Bella)",
-        "Java Programming (Dr. Y J Nagendra Kumar)",
-        "Discrete Mathematics (Dr. Y Srilalitha)"
+        "Java Programming (Dr. Y J Nagendra Kumar)"
       ]
     }
   },
   "3": {
     "A": {
       "Monday": [
-        "Software Engineering (Mrs. T N P Madhuri)",
-        "Software Engineering (Mrs. T N P Madhuri)",
-        "Web Programming (K Manasa)",
-        "Internet of Things and Applications Lab (Mrs. A Srilakshmi)",
-        "Introduction to Data Science (Mrs. Vemula Divya)",
         "Constitution of India (Mrs. A Vani Pushpavathi)",
-        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)"
+        "Constitution of India (Mrs. A Vani Pushpavathi)",
+        "Introduction to Data Science (Mrs. Vemula Divya)",
+        "Introduction to Data Science (Mrs. Vemula Divya)",
+        "Web Programming (K Manasa)",
+        "Artificial Intelligence (Mr. P K Abhilash)",
+        "Artificial Intelligence (Mr. P K Abhilash)"
       ],
       "Tuesday": [
-        "Data Warehousing and Data Mining (Dr. V Akila)",
         "Artificial Intelligence (Mr. P K Abhilash)",
-        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
         "Artificial Intelligence (Mr. P K Abhilash)",
+        "Constitution of India (Mrs. A Vani Pushpavathi)",
+        "Introduction to Data Science (Mrs. Vemula Divya)",
         "Internet of Things and Applications Lab (Mrs. A Srilakshmi)",
-        "Web Programming Lab (Mrs. P Prathibha Swaraj)",
-        "Data Warehousing and Data Mining (Dr. V Akila)"
+        "Web Programming (K Manasa)",
+        "Web Programming (K Manasa)"
       ],
       "Wednesday": [
         "Web Programming (K Manasa)",
-        "Constitution of India (Mrs. A Vani Pushpavathi)",
-        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
-        "Artificial Intelligence (Mr. P K Abhilash)",
+        "Web Programming (K Manasa)",
         "Data Warehousing and Data Mining (Dr. V Akila)",
-        "Artificial Intelligence (Mr. P K Abhilash)",
-        "Software Engineering (Mrs. T N P Madhuri)"
+        "Data Warehousing and Data Mining (Dr. V Akila)",
+        "Software Engineering (Mrs. T N P Madhuri)",
+        "Software Engineering (Mrs. T N P Madhuri)",
+        "Artificial Intelligence (Mr. P K Abhilash)"
       ],
       "Thursday": [
-        "Constitution of India (Mrs. A Vani Pushpavathi)",
-        "Web Programming (K Manasa)",
         "Data Warehousing and Data Mining (Dr. V Akila)",
-        "Internet of Things and Applications Lab (Mrs. A Srilakshmi)",
-        "Web Programming (K Manasa)",
-        "Software Engineering (Mrs. T N P Madhuri)",
-        "Web Programming Lab (Mrs. P Prathibha Swaraj)"
+        "Data Warehousing and Data Mining (Dr. V Akila)",
+        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
+        "Web Programming Lab (Mrs. P Prathibha Swaraj)",
+        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
+        "Web Programming Lab (Mrs. P Prathibha Swaraj)",
+        "Software Engineering (Mrs. T N P Madhuri)"
       ],
       "Friday": [
         "",
@@ -217,51 +217,51 @@
         ""
       ],
       "Saturday": [
-        "Software Engineering (Mrs. T N P Madhuri)",
-        "Web Programming (K Manasa)",
-        "Introduction to Data Science (Mrs. Vemula Divya)",
-        "Web Programming Lab (Mrs. P Prathibha Swaraj)",
+        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
         "Data Warehousing and Data Mining (Dr. V Akila)",
-        "Introduction to Data Science (Mrs. Vemula Divya)",
-        "Artificial Intelligence (Mr. P K Abhilash)"
+        "Internet of Things and Applications Lab (Mrs. A Srilakshmi)",
+        "Software Engineering (Mrs. T N P Madhuri)",
+        "Software Engineering (Mrs. T N P Madhuri)",
+        "Web Programming Lab (Mrs. P Prathibha Swaraj)",
+        "Internet of Things and Applications Lab (Mrs. A Srilakshmi)"
       ]
     },
     "B": {
       "Monday": [
         "Constitution of India (Mrs. A Srilakshmi)",
         "Constitution of India (Mrs. A Srilakshmi)",
-        "Web Programming (Dr. G Prasanthi)",
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
+        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
         "Introduction to Data Science (Mrs. M Pavithra)",
         "Introduction to Data Science (Mrs. M Pavithra)",
-        "Software Engineering (Mrs.L.Hema Lalitha)"
+        "Web Programming (Dr. G Prasanthi)"
       ],
       "Tuesday": [
-        "Web Programming Lab (Mrs. T. Nishitha)",
+        "Introduction to Data Science (Mrs. M Pavithra)",
+        "Constitution of India (Mrs. A Srilakshmi)",
+        "Web Programming (Dr. G Prasanthi)",
         "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Web Programming (Dr. G Prasanthi)",
         "Software Engineering (Mrs.L.Hema Lalitha)",
-        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
-        "Internet of Things and Applications Lab (Mrs. M Usha Rani)",
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
-        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)"
+        "Software Engineering (Mrs.L.Hema Lalitha)"
       ],
       "Wednesday": [
+        "Web Programming (Dr. G Prasanthi)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Web Programming (Dr. G Prasanthi)",
         "Software Engineering (Mrs.L.Hema Lalitha)",
-        "Web Programming (Dr. G Prasanthi)",
-        "Web Programming (Dr. G Prasanthi)",
-        "Artificial Intelligence (Mrs. D Preethi)",
-        "Constitution of India (Mrs. A Srilakshmi)",
-        "Internet of Things and Applications Lab (Mrs. M Usha Rani)",
-        "Web Programming Lab (Mrs. T. Nishitha)"
+        "Software Engineering (Mrs.L.Hema Lalitha)",
+        "Artificial Intelligence (Mrs. D Preethi)"
       ],
       "Thursday": [
+        "Software Engineering (Mrs.L.Hema Lalitha)",
         "Artificial Intelligence (Mrs. D Preethi)",
         "Web Programming Lab (Mrs. T. Nishitha)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
         "Artificial Intelligence (Mrs. D Preethi)",
-        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
-        "Software Engineering (Mrs.L.Hema Lalitha)",
-        "Internet of Things and Applications Lab (Mrs. M Usha Rani)",
-        "Introduction to Data Science (Mrs. M Pavithra)"
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Internet of Things and Applications Lab (Mrs. M Usha Rani)"
       ],
       "Friday": [
         "",
@@ -273,51 +273,51 @@
         ""
       ],
       "Saturday": [
-        "Web Programming (Dr. G Prasanthi)",
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Web Programming Lab (Mrs. T. Nishitha)",
         "Artificial Intelligence (Mrs. D Preethi)",
-        "Web Programming (Dr. G Prasanthi)",
         "Artificial Intelligence (Mrs. D Preethi)",
-        "Software Engineering (Mrs.L.Hema Lalitha)"
+        "Internet of Things and Applications Lab (Mrs. M Usha Rani)",
+        "Web Programming Lab (Mrs. T. Nishitha)",
+        "Artificial Intelligence Lab Using Python (Mrs. M Kanaka Durga Bella)",
+        "Internet of Things and Applications Lab (Mrs. M Usha Rani)"
       ]
     },
     "C": {
       "Monday": [
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
-        "Artificial Intelligence (Mr. P K Abhilash)",
-        "Artificial Intelligence Lab Using Python (Mrs. P Prathibha Swaraj)",
         "Web Programming (Sri. G Vijendar Reddy)",
-        "Web Programming Lab (Mrs. T. Nishitha)",
-        "Software Engineering (Mrs. Vemula Divya)",
-        "Introduction to Data Science (Mrs. D Preethi)"
+        "Web Programming (Sri. G Vijendar Reddy)",
+        "Constitution of India (Mrs. A Srilakshmi)",
+        "Constitution of India (Mrs. A Srilakshmi)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Artificial Intelligence Lab Using Python (Mrs. P Prathibha Swaraj)"
       ],
       "Tuesday": [
-        "Web Programming (Sri. G Vijendar Reddy)",
-        "Web Programming (Sri. G Vijendar Reddy)",
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
-        "Introduction to Data Science (Mrs. D Preethi)",
-        "Software Engineering (Mrs. Vemula Divya)",
-        "Web Programming Lab (Mrs. T. Nishitha)"
-      ],
-      "Wednesday": [
-        "Artificial Intelligence (Mr. P K Abhilash)",
-        "Artificial Intelligence (Mr. P K Abhilash)",
-        "Internet of Things and Applications Lab (Mrs. R Madhuri)",
-        "Constitution of India (Mrs. A Srilakshmi)",
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
-        "Internet of Things and Applications Lab (Mrs. R Madhuri)",
-        "Introduction to Data Science (Mrs. D Preethi)"
-      ],
-      "Thursday": [
         "Artificial Intelligence Lab Using Python (Mrs. P Prathibha Swaraj)",
-        "Software Engineering (Mrs. Vemula Divya)",
-        "Web Programming (Sri. G Vijendar Reddy)",
-        "Internet of Things and Applications Lab (Mrs. R Madhuri)",
         "Web Programming Lab (Mrs. T. Nishitha)",
         "Constitution of India (Mrs. A Srilakshmi)",
-        "Artificial Intelligence (Mr. P K Abhilash)"
+        "Web Programming Lab (Mrs. T. Nishitha)",
+        "Artificial Intelligence (Mr. P K Abhilash)",
+        "Artificial Intelligence (Mr. P K Abhilash)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)"
+      ],
+      "Wednesday": [
+        "Web Programming (Sri. G Vijendar Reddy)",
+        "Web Programming (Sri. G Vijendar Reddy)",
+        "Software Engineering (Mrs. Vemula Divya)",
+        "Software Engineering (Mrs. Vemula Divya)",
+        "Artificial Intelligence (Mr. P K Abhilash)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
+        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)"
+      ],
+      "Thursday": [
+        "Introduction to Data Science (Mrs. D Preethi)",
+        "Web Programming (Sri. G Vijendar Reddy)",
+        "Artificial Intelligence Lab Using Python (Mrs. P Prathibha Swaraj)",
+        "Internet of Things and Applications Lab (Mrs. R Madhuri)",
+        "Web Programming Lab (Mrs. T. Nishitha)",
+        "Introduction to Data Science (Mrs. D Preethi)",
+        "Software Engineering (Mrs. Vemula Divya)"
       ],
       "Friday": [
         "",
@@ -329,13 +329,13 @@
         ""
       ],
       "Saturday": [
-        "Data Warehousing and Data Mining (Mrs. G D Vijaya Lakshmi)",
-        "Artificial Intelligence (Mr. P K Abhilash)",
-        "Web Programming (Sri. G Vijendar Reddy)",
         "Software Engineering (Mrs. Vemula Divya)",
-        "Artificial Intelligence Lab Using Python (Mrs. P Prathibha Swaraj)",
-        "Constitution of India (Mrs. A Srilakshmi)",
-        "Software Engineering (Mrs. Vemula Divya)"
+        "Software Engineering (Mrs. Vemula Divya)",
+        "Internet of Things and Applications Lab (Mrs. R Madhuri)",
+        "Introduction to Data Science (Mrs. D Preethi)",
+        "Artificial Intelligence (Mr. P K Abhilash)",
+        "Artificial Intelligence (Mr. P K Abhilash)",
+        "Internet of Things and Applications Lab (Mrs. R Madhuri)"
       ]
     }
   }

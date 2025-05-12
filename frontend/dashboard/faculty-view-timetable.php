@@ -166,7 +166,6 @@ $conn->close();
 
 <div class="top-bar">
     <div class="left-section">
-        <img src="../assets/image.png" alt="Logo" style="height:40px;">
         <div class="title">AutoSched</div>
     </div>
     <div class="welcome">Welcome, <?= htmlspecialchars($name); ?> 👋</div>
@@ -178,9 +177,9 @@ $conn->close();
 <div class="sidebar">
     <a href="faculty-dashboard.php">Dashboard</a>
     <a href="faculty-view-timetable.php" class="active">View Timetable</a>
-    <a href="#">Apply Leave</a>
+    <a href="faculty-apply-leave.php">Apply Leave</a>
     <?php if ((int)$faculty_id === 1074): ?>
-        <a href="#">Allot Leaves</a>
+        <a href="hod-view-leave-request.php">Allot Leaves</a>
         <a href="allot-faculty.php">Allot Faculty</a>
     <?php endif; ?>
 </div>

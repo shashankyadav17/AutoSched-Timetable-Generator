@@ -19,7 +19,6 @@ $faculty_id = $_SESSION['faculty_id']; // Assuming faculty_id is stored in the s
 
 <div class="top-bar">
     <div class="left-section">
-        <img src="../assets/image.png" alt="Logo">
         <div class="title">AutoSched</div>
     </div>
     <div class="welcome">Welcome, <?php echo htmlspecialchars($username); ?> 👋</div>
@@ -29,6 +28,7 @@ $faculty_id = $_SESSION['faculty_id']; // Assuming faculty_id is stored in the s
 </div>
 
 <div class="sidebar">
+    <a href="faculty-dashboard.php">Dashboard</a>
     <a href="faculty-view-timetable.php?username=<?php echo urlencode($username); ?>">View Timetable</a>
     <a href="faculty-apply-leave.php">Apply Leave</a>
     <?php if ((int)$faculty_id === 1074): ?>

@@ -18,8 +18,7 @@ $username = $_SESSION['username'];
 
     <div class="top-bar">
         <div class="left-section">
-            <img src="../assets/image.png" alt="Logo">
-            <div class="title">AutoSched</div>
+            <div class="logo-title"><strong>AutoSched</strong></div>
         </div>
         <div class="welcome">Welcome, <?php echo htmlspecialchars($username); ?> 👋</div>
         <form method="POST" action="../logout.php">
@@ -29,10 +28,8 @@ $username = $_SESSION['username'];
 
     <div class="sidebar">
         <a href="admin-dashboard.php">Dashboard</a>
-        <a href="#">Manage Subjects</a>
         <a href="timetable-settings.php">Timetable Settings</a>
         <a href="generate-timetable.php">Generate Timetable</a>
-        <a href="#">Manage Faculty</a>
     </div>
 
     <div class="main-content">

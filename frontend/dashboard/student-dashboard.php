@@ -19,7 +19,6 @@ echo "<p>Debug: Session username in student-dashboard.php = " . htmlspecialchars
 
     <div class="top-bar">
         <div class="left-section">
-            <img src="../assets/image.png" alt="Logo">
             <div class="title">AutoSched</div>
         </div>
         <div class="welcome">Welcome, <?php echo htmlspecialchars($username); ?> 👋</div>
@@ -29,6 +28,7 @@ echo "<p>Debug: Session username in student-dashboard.php = " . htmlspecialchars
     </div>
 
     <div class="sidebar">
+        <a href="student-dashboard.php">Dashboard</a>
         <a href="student-view-timetable.php?username=<?php echo urlencode($username); ?>">View Timetable</a>
     </div>
 

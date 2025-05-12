@@ -70,7 +70,6 @@ if ($result) {
 
 <div class="top-bar">
     <div class="left-section">
-        <img src="../assets/image.png" alt="Logo" style="height:40px;">
         <div class="title">AutoSched</div>
     </div>
     <div class="welcome">Welcome, HOD <?= htmlspecialchars($name); ?> 👋</div>
@@ -81,7 +80,10 @@ if ($result) {
 
 <div class="sidebar">
     <a href="faculty-dashboard.php">Dashboard</a>
-    <a href="hod-view-leave-requests.php" class="active">Manage Leaves</a>
+    <a href="faculty-view-timetable.php?username=<?php echo urlencode($username); ?>">View Timetable</a>
+    <a href="faculty-apply-leave.php">Apply Leave</a>
+    <a href="hod-view-leave-requests.php" class="active">Allot Leaves</a>
+    <a href="allot-faculty.php">Allot Faculty</a>
 </div>
 
 <div class="main-content">

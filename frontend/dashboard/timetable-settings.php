@@ -107,7 +107,9 @@ if (!empty($selected_semester)) {
 </head>
 <body>
 <div class="top-bar">
-    <div class="logo-title"><strong>AutoSched</strong></div>
+    <div class="left-section">
+        <div class="logo-title"><strong>AutoSched</strong></div>
+    </div>
     <div class="welcome-message">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?> 👋</div>
     <form method="POST" action="../logout.php" class="logout-form">
         <button class="logout-btn" type="submit">Logout</button>
@@ -117,10 +119,8 @@ if (!empty($selected_semester)) {
     <div class="main-wrapper">
         <div class="sidebar">
             <a href="admin-dashboard.php">Dashboard</a>
-            <a href="#">Manage Subjects</a>
             <a href="timetable-settings.php" class="active">Timetable Settings</a>
             <a href="generate-timetable.php">Generate Timetable</a>
-            <a href="#">Manage Faculty</a>
         </div>
 
         <div class="main-content">
