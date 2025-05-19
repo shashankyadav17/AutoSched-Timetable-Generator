@@ -1,4 +1,6 @@
 <?php
+include '../db.php';
+
 session_start();
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'faculty') {
     header("Location: ../home.html");
@@ -40,6 +42,19 @@ $faculty_id = $_SESSION['faculty_id']; // Assuming faculty_id is stored in the s
 <div class="main-content">
     <h2>Dashboard</h2>
     <p>Select an option from the sidebar to get started.</p>
+
+    <div class="notifications">
+        <?php
+        $faculty_id = $_SESSION['faculty_id'];
+        $sql = "SELECT message, created_at FROM notifications WHERE user_type = 'faculty' AND user_id = $faculty_id ORDER BY created_at DESC LIMIT 5";
+        $res = $conn->query($sql);
+        echo "<h3>🔔 Notifications</h3>";
+        while ($row = $res->fetch_assoc()) {
+            echo "<p>🕒 " . $row['created_at'] . "<br>" . htmlspecialchars($row['message']) . "</p><hr>";
+        }
+
+        ?>
+    </div>
 </div>
 
 </body>
