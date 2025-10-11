@@ -1,0 +1,55 @@
+# ===============================
+# AutoSched - Automated Timetable Scheduler
+# ===============================
+
+# 🚫 System and temporary files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# 🚫 OS and IDE files
+.vscode/
+.idea/
+*.bak
+*.swp
+*.php~
+
+# 🚫 Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🚫 PHP / Local config files (keep credentials private)
+backend/db.php
+
+# 🚫 Local XAMPP or MySQL storage folders
+xampp/
+*/xampp/mysql/data/
+
+# 🚫 Node / Composer dependencies (if added later)
+node_modules/
+vendor/
+
+# 🚫 Auto-generated timetables and JSON outputs
+backend/generated_timetable_all.json
+backend/generated_timetable_*.json
+backend/output/
+*.json
+*.xlsx
+
+# 🚫 Environment and config files
+.env
+
+# 🚫 Uploaded files / backups
+uploads/
+backup/
+*.zip
+
+# ✅ Keep the exported SQL dump (for repo setup)
+# (Do NOT ignore /database/autosched.sql)
+!database/autosched.sql
+
+# ✅ Keep your README and documentation
+!README.md

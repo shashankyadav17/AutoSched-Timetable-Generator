@@ -2,7 +2,7 @@
     "semesters": {
         "1": {
             "general_settings": {
-                "id": 6,
+                "id": 8,
                 "semester_id": 1,
                 "periods_per_day": 7,
                 "period_duration": 50,
@@ -53,19 +53,19 @@
                 {
                     "subject_id": 6,
                     "subject_name": "Digital Electronics Lab",
-                    "subject_type": "theory",
+                    "subject_type": "lab",
                     "lectures_per_week": 3
                 },
                 {
                     "subject_id": 7,
                     "subject_name": "Java Programming Lab",
-                    "subject_type": "theory",
+                    "subject_type": "lab",
                     "lectures_per_week": 3
                 },
                 {
                     "subject_id": 8,
                     "subject_name": "Database Management Systems Lab",
-                    "subject_type": "theory",
+                    "subject_type": "lab",
                     "lectures_per_week": 3
                 },
                 {
@@ -113,8 +113,8 @@
                     "section": "C"
                 },
                 {
-                    "faculty_id": 1075,
-                    "faculty_name": "Dr. K. Prasanna Lakshmi",
+                    "faculty_id": 1090,
+                    "faculty_name": "Mrs. P Prathibha Swaraj",
                     "subject_id": 3,
                     "section": "A"
                 },
@@ -137,32 +137,32 @@
                     "section": "A"
                 },
                 {
-                    "faculty_id": 1077,
-                    "faculty_name": "Dr. V N Ganapathi Raju",
+                    "faculty_id": 1106,
+                    "faculty_name": "Mrs. T. Nishitha",
                     "subject_id": 4,
                     "section": "B"
                 },
                 {
-                    "faculty_id": 1106,
-                    "faculty_name": "Mrs. T. Nishitha",
+                    "faculty_id": 1077,
+                    "faculty_name": "Dr. V N Ganapathi Raju",
                     "subject_id": 4,
                     "section": "C"
-                },
-                {
-                    "faculty_id": 1076,
-                    "faculty_name": "Dr. Y Srilalitha",
-                    "subject_id": 5,
-                    "section": "A"
                 },
                 {
                     "faculty_id": 1079,
                     "faculty_name": "Sri. P Gopala Krishna",
                     "subject_id": 5,
-                    "section": "B"
+                    "section": "A"
                 },
                 {
                     "faculty_id": 1076,
                     "faculty_name": "Dr. Y Srilalitha",
+                    "subject_id": 5,
+                    "section": "B"
+                },
+                {
+                    "faculty_id": 1079,
+                    "faculty_name": "Sri. P Gopala Krishna",
                     "subject_id": 5,
                     "section": "C"
                 },
@@ -179,8 +179,8 @@
                     "section": "B"
                 },
                 {
-                    "faculty_id": 1110,
-                    "faculty_name": "Mrs.L.Hema Lalitha",
+                    "faculty_id": 1087,
+                    "faculty_name": "Mr. P K Abhilash",
                     "subject_id": 6,
                     "section": "C"
                 },
@@ -203,20 +203,20 @@
                     "section": "C"
                 },
                 {
-                    "faculty_id": 1107,
-                    "faculty_name": "Ms. I Laxmi Bindu",
+                    "faculty_id": 1077,
+                    "faculty_name": "Dr. V N Ganapathi Raju",
                     "subject_id": 8,
                     "section": "A"
                 },
                 {
-                    "faculty_id": 1077,
-                    "faculty_name": "Dr. V N Ganapathi Raju",
+                    "faculty_id": 1097,
+                    "faculty_name": "Mrs. M Kanaka Durga Bella",
                     "subject_id": 8,
                     "section": "B"
                 },
                 {
-                    "faculty_id": 1097,
-                    "faculty_name": "Mrs. M Kanaka Durga Bella",
+                    "faculty_id": 1107,
+                    "faculty_name": "Ms. I Laxmi Bindu",
                     "subject_id": 8,
                     "section": "C"
                 },
@@ -227,8 +227,8 @@
                     "section": "A"
                 },
                 {
-                    "faculty_id": 1092,
-                    "faculty_name": "Mrs. N Mounika",
+                    "faculty_id": 1081,
+                    "faculty_name": "Dr. V Akila",
                     "subject_id": 9,
                     "section": "B"
                 },
@@ -242,7 +242,7 @@
         },
         "3": {
             "general_settings": {
-                "id": 7,
+                "id": 9,
                 "semester_id": 3,
                 "periods_per_day": 7,
                 "period_duration": 50,
@@ -293,19 +293,19 @@
                 {
                     "subject_id": 26,
                     "subject_name": "Internet of Things and Applications Lab",
-                    "subject_type": "theory",
+                    "subject_type": "lab",
                     "lectures_per_week": 3
                 },
                 {
                     "subject_id": 27,
                     "subject_name": "Web Programming Lab",
-                    "subject_type": "theory",
+                    "subject_type": "lab",
                     "lectures_per_week": 3
                 },
                 {
                     "subject_id": 28,
                     "subject_name": "Artificial Intelligence Lab Using Python",
-                    "subject_type": "theory",
+                    "subject_type": "lab",
                     "lectures_per_week": 3
                 },
                 {
@@ -323,8 +323,8 @@
                     "section": "A"
                 },
                 {
-                    "faculty_id": 1110,
-                    "faculty_name": "Mrs.L.Hema Lalitha",
+                    "faculty_id": 1096,
+                    "faculty_name": "Mrs. G D Vijaya Lakshmi",
                     "subject_id": 21,
                     "section": "B"
                 },
@@ -347,14 +347,14 @@
                     "section": "B"
                 },
                 {
-                    "faculty_id": 1087,
-                    "faculty_name": "Mr. P K Abhilash",
+                    "faculty_id": 1095,
+                    "faculty_name": "Mrs. D Preethi",
                     "subject_id": 22,
                     "section": "C"
                 },
                 {
-                    "faculty_id": 1104,
-                    "faculty_name": "K Manasa",
+                    "faculty_id": 1080,
+                    "faculty_name": "Sri. G Vijendar Reddy",
                     "subject_id": 23,
                     "section": "A"
                 },
@@ -365,20 +365,20 @@
                     "section": "B"
                 },
                 {
-                    "faculty_id": 1080,
-                    "faculty_name": "Sri. G Vijendar Reddy",
+                    "faculty_id": 1104,
+                    "faculty_name": "K Manasa",
                     "subject_id": 23,
                     "section": "C"
                 },
                 {
-                    "faculty_id": 1081,
-                    "faculty_name": "Dr. V Akila",
+                    "faculty_id": 1096,
+                    "faculty_name": "Mrs. G D Vijaya Lakshmi",
                     "subject_id": 24,
                     "section": "A"
                 },
                 {
-                    "faculty_id": 1096,
-                    "faculty_name": "Mrs. G D Vijaya Lakshmi",
+                    "faculty_id": 1081,
+                    "faculty_name": "Dr. V Akila",
                     "subject_id": 24,
                     "section": "B"
                 },
@@ -401,8 +401,8 @@
                     "section": "B"
                 },
                 {
-                    "faculty_id": 1095,
-                    "faculty_name": "Mrs. D Preethi",
+                    "faculty_id": 1085,
+                    "faculty_name": "Mrs. M Pavithra",
                     "subject_id": 25,
                     "section": "C"
                 },
@@ -467,8 +467,8 @@
                     "section": "A"
                 },
                 {
-                    "faculty_id": 1091,
-                    "faculty_name": "Mrs. A Srilakshmi",
+                    "faculty_id": 1100,
+                    "faculty_name": "Mrs. A Vani Pushpavathi",
                     "subject_id": 29,
                     "section": "B"
                 },
