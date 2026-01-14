@@ -1,4 +1,4 @@
-# AutoSched - Automated Timetable Scheduler
+# AutoSched : Automated Timetable Scheduler
 
 AutoSched is a web-based automated timetable generator built to simplify and automate the scheduling process for colleges and universities. It ensures conflict-free timetable generation for multiple semesters, manages faculty leaves, assigns substitute teachers , and provides personalized dashboards for students, faculty, HOD, and administrators.
 
